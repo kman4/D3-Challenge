@@ -24,9 +24,12 @@ var svg = d3.select("#scatter")
 
 // reading data
 
-    d3.csv("./data.csv").then(function(data){
+d3.csv("./data.csv").then(function(data){
     var poverty = data.map( d => d.poverty);
     var healthcare = data.map( d=> d.healthcare);
+    console.log(poverty);
+    console.log(healthcare);
+    });
 // Add X Scale
     var xScale = d3.scaleLinear()
                     .domain(5,poverty)
@@ -54,10 +57,4 @@ var svg = d3.select("#scatter")
        .style("fill", "#69b3a2")
 
 
-
-
-
-
-
-});
   
