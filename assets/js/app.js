@@ -37,12 +37,12 @@ d3.csv("assets/data/data.csv").then(function(data) {
     //  Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
-      .domain([28, d3.max(data, d => d.poverty)])
-      .range([0, width]);
+      .domain([20, d3.max(data, d => d.poverty)])
+      .range([width,0]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([28, d3.max(data, d => d.healthcare)])
-      .range([height, 0]);
+      .domain([20, d3.max(data, d => d.healthcare)])
+      .range([ 0 , height]);
     
     //  Create axis functions
     // ==============================
@@ -52,6 +52,7 @@ d3.csv("assets/data/data.csv").then(function(data) {
     //  Append Axes to the chart
     // ==============================
     chartGroup.append("g")
+    .classed("x-axis", true)
       .attr("transform", `translate(0, ${height})`)
       .call(bottomAxis);
 
@@ -66,11 +67,11 @@ d3.csv("assets/data/data.csv").then(function(data) {
     .append("circle")
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
-    .attr("r", "15")
+    .attr("r", "12")
     .attr("stroke", "black")
     .attr("fill", "Blue")
     .attr("stroke-width", "3")
-    .attr("opacity", "0.80");
+    .attr("opacity", "0.25");
     
 
     // State abbreviations
@@ -95,7 +96,7 @@ d3.csv("assets/data/data.csv").then(function(data) {
     // ==============================
     var toolTip = d3.tip()
       .attr("class", "tooltip")
-      .offset([-8, 10])
+      .offset([80, -60])
       .html(function(d) {
         return (`${d.state}<br>Poverty: ${d.poverty}%<br>Healthcare ${d.healthcare}%`);
       });
@@ -129,4 +130,6 @@ d3.csv("assets/data/data.csv").then(function(data) {
         .attr("class", "axisText")
         .attr("font-weight", "bold")
         .text("In poverty (%)");
+
+        
     });
