@@ -148,11 +148,11 @@ else {
 
  var toolTip = d3.tip()
     .attr("class", "tooltip")
-    .offset([-30, 30])
+    .offset([10, 10])
     .html(function(d) {
      return (`${d.state}
              <br>${xlabel} ${d[chosenXAxis]}
-             <br>${ylabel} ${d[chosenYAxis]}`);
+             <br>${ylabel} ${d[chosenYAxis]}%`);
     });
 
   circlesGroup.call(toolTip);
