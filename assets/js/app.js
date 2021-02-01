@@ -9,7 +9,7 @@ var margin = {
   left: 100
 };
 
-var width = svgWidth - margin.left - margin.right + 20;
+var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom - 20;
 
 // Create an SVG wrapper, append an SVG group that will hold our chart,
@@ -148,11 +148,8 @@ else {
 
  var toolTip = d3.tip()
     .attr("class", "tooltip")
-    .style("position", "absolute")
     .style("border", "solid")
-
-
-  //  .offset([-8, 10])
+    .offset([0, 0])
     .html(function(d) {
      return (`${d.state}
              <br>${xlabel} ${d[chosenXAxis]}%
