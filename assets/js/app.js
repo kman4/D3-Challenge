@@ -148,7 +148,11 @@ else {
 
  var toolTip = d3.tip()
     .attr("class", "tooltip")
-    .offset([10, 10])
+    .style("position", "absolute")
+    .style("border", "solid")
+
+
+  //  .offset([-8, 10])
     .html(function(d) {
      return (`${d.state}
              <br>${xlabel} ${d[chosenXAxis]}%
