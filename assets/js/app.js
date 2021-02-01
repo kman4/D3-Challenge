@@ -245,7 +245,7 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
       .attr("y", 20)  
       .attr("value", "poverty")
       .classed("active", true)
-      .text("Poverty (%)");
+      .text(" In Poverty (%)");
 
     var ageLabel = xLabelsGroup.append("text")
       .attr("x", 0)
