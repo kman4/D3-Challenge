@@ -26,8 +26,8 @@ var chartGroup = svg.append("g")
 
 // Initial Parameters
 // Initialize variable
-var chosenXAxis = "age";
-var chosenYAxis = "smokes";
+var chosenXAxis = "poverty";
+var chosenYAxis = "healthcare";
 
 
 // function used for updating x-scale var upon click on axis label
@@ -131,7 +131,7 @@ if (chosenXAxis === "poverty") {
 else if (chosenXAxis === "age") {
     xlabel = "Age:"
  }
-else {
+else if(chosenXAxis === "income") {
     xlabel = "Income:";
   }
 
@@ -148,7 +148,7 @@ else {
 
  var toolTip = d3.tip()
     .attr("class", "tooltip")
-    .offset([80, -60])
+    .offset([-30, 30])
     .html(function(d) {
      return (`${d.state}
              <br>${xlabel} ${d[chosenXAxis]}
@@ -345,8 +345,8 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
               .classed("active", false)
               .classed("inactive", true);
             povertyLabel
-              .classed("active", false)
-              .classed("inactive", true);
+              .classed("active", true)
+              .classed("inactive", false);
           }
         }
       });
