@@ -151,7 +151,7 @@ else {
     .offset([10, 10])
     .html(function(d) {
      return (`${d.state}
-             <br>${xlabel} ${d[chosenXAxis]}
+             <br>${xlabel} ${d[chosenXAxis]}%
              <br>${ylabel} ${d[chosenYAxis]}%`);
     });
 
@@ -179,7 +179,9 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
       data.forEach(function(data) {
       data.poverty = +data.poverty;
       data.age = +data.age;
+      data.agemoe = +data.agemoe;
       data.income = +data.income;
+      data.incomemoe = +data.incomemoe;
       data.healthcare = +data.healthcare;
       data.obesity = +data.obesity;
       data.smokes = +data.smokes;
@@ -413,4 +415,6 @@ d3.csv("assets/data/data.csv").then(function(data, err) {
       
         }
       });
+    }).catch(function(error) {
+      console.log(error);      
 })
